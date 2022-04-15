@@ -6,8 +6,6 @@ import { ProductsList } from '../components/products';
 import { useProducts } from '../hooks';
 import { FullScreenLoading } from '../components/ui';
 
-
-
 const HomePage: NextPage = () => {
 
   const { products, isLoading } = useProducts('/products');
@@ -19,7 +17,7 @@ const HomePage: NextPage = () => {
 
       {
         isLoading
-          ? <FullScreenLoading/>
+          ? <FullScreenLoading />
           : <ProductsList products={products} />
       }
 
