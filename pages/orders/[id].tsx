@@ -1,6 +1,5 @@
 import NextLink from 'next/link';
-import { Card, CardContent, Chip, Divider, Grid, Link, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, Card, CardContent, Chip, Divider, Grid, Link, Typography } from "@mui/material";
 import { CartList, OrderSummary } from "../../components/cart";
 import { ShopLayout } from "../../components/layouts";
 import { CreditCardOffOutlined, CreditScoreOutlined } from '@mui/icons-material';

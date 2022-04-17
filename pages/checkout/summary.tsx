@@ -1,6 +1,5 @@
 import NextLink from 'next/link';
-import { Button, Card, CardContent, Divider, Grid, Link, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, Button, Card, CardContent, Divider, Grid, Link, Typography } from "@mui/material";
 import { CartList, OrderSummary } from "../../components/cart";
 import { ShopLayout } from "../../components/layouts";
 
