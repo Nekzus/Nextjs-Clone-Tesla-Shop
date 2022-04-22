@@ -1,5 +1,7 @@
 import { useContext, useState } from 'react';
+import { GetServerSideProps } from 'next';
 import NextLink from 'next/link';
+import { getSession, signIn } from 'next-auth/react';
 
 import { Box, Button, Chip, Grid, Link, TextField, Typography } from '@mui/material';
 import { ErrorOutline } from '@mui/icons-material';
@@ -25,14 +27,15 @@ const LoginPage = () => {
 
         setShowError(false);
 
-        const isValidLogin = await loginUser(email, password);
-        if (!isValidLogin) {
-            setShowError(true);
-            setTimeout(() => setShowError(false), 3000);
-            return;
-        }
-        const destination = router.query.p?.toString() || '/';
-        router.replace(destination);
+        // const isValidLogin = await loginUser(email, password);
+        // if (!isValidLogin) {
+        //     setShowError(true);
+        //     setTimeout(() => setShowError(false), 3000);
+        //     return;
+        // }
+        // const destination = router.query.p?.toString() || '/';
+        // router.replace(destination);
+        await signIn('credentials', { email, password });
 
     }
 
@@ -110,6 +113,27 @@ const LoginPage = () => {
             </form>
         </AuthLayout>
     )
+}
+
+
+export const getServerSideProps: GetServerSideProps = async ({ req, query }) => {
+
+    const session = await getSession({ req });
+    
+    const { p = '/' } = query;
+
+    if (session) {
+        return {
+            redirect: {
+                destination: p.toString(),
+                permanent: false
+            }
+        }
+    }
+
+    return {
+        props: {}
+    }
 }
 
 export default LoginPage
