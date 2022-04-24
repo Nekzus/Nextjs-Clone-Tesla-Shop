@@ -25,7 +25,6 @@ export const AuthProvider: FC = ({ children }) => {
 
     useEffect(() => {
         if (status === 'authenticated') {
-            console.log({ user: data?.user });
             dispatch({type: '[AUTH] - Login', payload: data?.user as IUser});
         }
     }, [data, status]);
