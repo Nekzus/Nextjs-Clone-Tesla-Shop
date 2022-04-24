@@ -1,7 +1,7 @@
 
 
 export * as db from './db';
-export * as dbOders from './dbOrders';
+export * as dbOrders from './dbOrders';
 export * as dbProducts from './dbProducts';
 export * as dbUsers from './dbUsers';
 export * from './constants';

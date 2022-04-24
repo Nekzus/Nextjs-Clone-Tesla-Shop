@@ -6,7 +6,7 @@ import { Chip, Grid, Link, Typography } from '@mui/material';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
 import { ShopLayout } from '../../components/layouts';
-import { dbOders } from '../../database';
+import { dbOrders } from '../../database';
 import { IOrder } from '../../interfaces';
 
 const columns: GridColDef[] = [
@@ -93,7 +93,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
         }
     }
 
-    const orders = await dbOders.getOrdersByUser(session.user._id);
+    const orders = await dbOrders.getOrdersByUser(session.user._id);
 
     return {
         props: {
